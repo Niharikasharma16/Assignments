@@ -1,0 +1,29 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+public class IncreasePercentageCSE {
+
+    public static void main(String[] args) {
+
+        String url = "jdbc:mysql://localhost:3306/college_db";
+        String user = "root";
+        String pass = "root";
+
+        // increase by 5% means: percentage = percentage + (percentage * 0.05)
+        String updateQuery = "UPDATE Students SET percentage = percentage + (percentage * 0.05) WHERE branch = ?";
+
+        try (Connection con = DriverManager.getConnection(url, user, pass);
+             PreparedStatement ps = con.prepareStatement(updateQuery)) {
+
+            ps.setString(1, "CSE");
+
+            int updated = ps.executeUpdate();
+            System.out.println("Updated percentage for " + updated + " CSE students (+5%).");
+
+        } catch (Exception e) {
+            System.out.println("Update failed.");
+            e.printStackTrace();
+        }
+    }
+}
