@@ -1,0 +1,16 @@
+Manual Test Case Report – Healthcare System
+Project Name: Healthcare Management System
+Testing Type: Manual Testing
+Tested Modules: Patient, Doctor, Appointment, Billing
+Test Cases Table
+TC ID	Module	Test Case	Steps	Test Data	Expected Result	Actual Result	Status
+HC_TC_01	Login	Login with valid credentials	Enter user/pass → Login	admin/1234	Login successful	As Expected	Pass
+HC_TC_02	Patient	Add patient with valid details	Patient → Add → Save	Name: Riya	Patient added	As Expected	Pass
+HC_TC_03	Patient	Add patient with blank name	Leave name blank → Save	blank	Validation message	As Expected	Pass
+HC_TC_04	Doctor	Add doctor details	Doctor → Add → Save	Dr. Rahul	Doctor added	As Expected	Pass
+HC_TC_05	Appointment	Book appointment	Appointment → Select doctor → Book	Date/time	Appointment confirmed	As Expected	Pass
+HC_TC_06	Appointment	Book appointment with past date	Select past date	01-01-2020	Error message	As Expected	Pass
+HC_TC_07	Records	View patient history	Patient → History	Patient ID	Records shown	As Expected	Pass
+HC_TC_08	Billing	Generate bill	Billing → Generate	Patient ID	Bill generated	As Expected	Pass
+HC_TC_09	Billing	Bill with invalid patient	Enter wrong ID	999	Error message	As Expected	Pass
+HC_TC_10	Logout	Logout system	Click logout	-	Back to login page	As Expected	Pass
