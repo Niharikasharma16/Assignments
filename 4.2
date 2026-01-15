@@ -1,0 +1,46 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class CreateAndInsertStudents {
+
+    public static void main(String[] args) {
+
+        String url = "jdbc:mysql://localhost:3306/college_db";
+        String user = "root";
+        String pass = "root";
+
+        String createTableQuery =
+                "CREATE TABLE IF NOT EXISTS Students (" +
+                "id INT PRIMARY KEY AUTO_INCREMENT, " +
+                "name VARCHAR(50) NOT NULL, " +
+                "branch VARCHAR(20) NOT NULL, " +
+                "semester INT NOT NULL, " +
+                "percentage DOUBLE NOT NULL, " +
+                "year_of_passing INT NOT NULL" +
+                ")";
+
+        String insertQuery =
+                "INSERT INTO Students(name, branch, semester, percentage, year_of_passing) VALUES " +
+                "('Niharika', 'CSE', 7, 82.5, 2025)," +
+                "('Rahul', 'EC', 7, 74.0, 2024)," +
+                "('Aman', 'Civil', 6, 68.5, 2024)," +
+                "('Sneha', 'CSE', 5, 79.0, 2026)," +
+                "('Priya', 'EC', 7, 88.2, 2025)," +
+                "('Karan', 'Civil', 8, 71.0, 2024)";
+
+        try (Connection con = DriverManager.getConnection(url, user, pass);
+             Statement st = con.createStatement()) {
+
+            st.executeUpdate(createTableQuery);
+            System.out.println("Students table created (if not already).");
+
+            int rows = st.executeUpdate(insertQuery);
+            System.out.println(rows + " records inserted successfully.");
+
+        } catch (Exception e) {
+            System.out.println("Something went wrong while creating/inserting data.");
+            e.printStackTrace();
+        }
+    }
+}
