@@ -1,0 +1,16 @@
+Manual Test Case Report – Customer Relationship Management (CRM)
+Project Name: Customer Relationship Management (CRM)
+Testing Type: Manual Testing
+Tested Modules: Login, Customer, Lead, Search, Update, Logout
+Test Cases Table
+TC ID	Module	Test Case	Steps	Test Data	Expected Result	Actual Result	Status
+CRM_TC_01	Login	Verify login with valid credentials	Open app → Enter username/password → Click Login	admin / 1234	User should login successfully	As Expected	Pass
+CRM_TC_02	Login	Verify login with invalid password	Enter wrong password → Click Login	admin / 0000	Error message should display	As Expected	Pass
+CRM_TC_03	Login	Verify blank username	Leave username blank → Click Login	(blank) / 1234	Show validation message	As Expected	Pass
+CRM_TC_04	Customer	Add new customer with valid data	Customer → Add → Fill details → Save	Name: Rahul	Customer should be added	As Expected	Pass
+CRM_TC_05	Customer	Add customer with empty name	Add customer → keep name blank → Save	Name: blank	Should show “Name required”	As Expected	Pass
+CRM_TC_06	Search	Search customer by ID	Search → Enter ID → Click Search	ID: 101	Customer details should display	As Expected	Pass
+CRM_TC_07	Lead	Add new lead	Lead → Add → Fill details → Save	Lead: Product A	Lead saved successfully	As Expected	Pass
+CRM_TC_08	Update	Update customer phone number	Open customer → Edit → Update phone → Save	9876543210	Details should update	As Expected	Pass
+CRM_TC_09	Delete	Delete customer record	Select customer → Delete → Confirm	Customer ID 101	Customer should be removed	As Expected	Pass
+CRM_TC_10	Logout	Verify logout	Click logout button	-	Should return to login page	As Expected	Pass
