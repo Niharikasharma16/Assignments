@@ -1,0 +1,18 @@
+Manual Test Case Report – Online E-Commerce Website
+Project Name: Online E-Commerce Website
+Testing Type: Manual Testing
+Tested Modules: Login, Products, Cart, Checkout, Orders
+Test Cases Table
+TC ID	Module	Test Case	Steps	Test Data	Expected Result	Actual Result	Status
+EC_TC_01	Login	Login with valid credentials	Enter email/pass → Login	user@gmail.com
+	Login successful	As Expected	Pass
+EC_TC_02	Login	Login with invalid email	Enter wrong email → Login	wrong@gmail.com
+	Error message	As Expected	Pass
+EC_TC_03	Products	Check product listing page	Open products page	-	Products should show	As Expected	Pass
+EC_TC_04	Search	Search product by name	Search bar → type product	“Shoes”	Matching results	As Expected	Pass
+EC_TC_05	Cart	Add product to cart	Open product → Add to cart	Product ID 10	Added to cart	As Expected	Pass
+EC_TC_06	Cart	Remove product from cart	Cart → Remove item	Product ID 10	Item removed	As Expected	Pass
+EC_TC_07	Cart	Increase product quantity	Cart → + button	Qty 2	Quantity updated	As Expected	Pass
+EC_TC_08	Checkout	Checkout with valid address	Checkout → Address → Pay	Address info	Order placed	As Expected	Pass
+EC_TC_09	Checkout	Checkout with empty address	Leave address blank → Pay	blank	Validation message	As Expected	Pass
+EC_TC_10	Orders	View order history	My orders → Open	-	Orders should show	As Expected	Pass
