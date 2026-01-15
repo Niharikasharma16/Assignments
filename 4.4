@@ -1,0 +1,29 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+public class DeleteCivil2024Students {
+
+    public static void main(String[] args) {
+
+        String url = "jdbc:mysql://localhost:3306/college_db";
+        String user = "root";
+        String pass = "root";
+
+        String deleteQuery = "DELETE FROM Students WHERE year_of_passing = ? AND branch = ?";
+
+        try (Connection con = DriverManager.getConnection(url, user, pass);
+             PreparedStatement ps = con.prepareStatement(deleteQuery)) {
+
+            ps.setInt(1, 2024);
+            ps.setString(2, "Civil");
+
+            int deleted = ps.executeUpdate();
+            System.out.println(deleted + " Civil students (passing year 2024) deleted.");
+
+        } catch (Exception e) {
+            System.out.println("Delete operation failed.");
+            e.printStackTrace();
+        }
+    }
+}
