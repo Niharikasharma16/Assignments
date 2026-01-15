@@ -1,0 +1,16 @@
+Manual Test Case Report – Travel Booking Platform
+Project Name: Travel Booking Platform
+Testing Type: Manual Testing
+Tested Modules: Signup/Login, Search, Booking, Payment, Cancellation
+Test Cases Table
+ TC ID	Module	Test Case	Steps	Test Data	Expected Result	Actual Result	Status
+TR_TC_01	Signup	Signup with valid details	Signup → Enter details → Submit	Name, Email	Account created	As Expected	Pass
+TR_TC_02	Login	Login with valid credentials	Enter valid user/pass → Login	user / 1234	Login success	As Expected	Pass
+TR_TC_03	Login	Login with wrong password	Enter wrong password → Login	user / 0000	Error message	As Expected	Pass
+TR_TC_04	Search	Search flights with valid route	Search → From-To → Date → Search	Delhi-Mumbai	Flights should display	As Expected	Pass
+TR_TC_05	Search	Search with empty destination	Leave “To” blank → Search	From: Delhi	Validation should show	As Expected	Pass
+TR_TC_06	Booking	Book a flight ticket	Select flight → Book → Confirm	Passenger details	Booking confirmed	As Expected	Pass
+TR_TC_07	Payment	Payment with valid details	Select payment → Pay	Card details	Payment successful	As Expected	Pass
+TR_TC_08	Payment	Payment failure scenario	Enter invalid card → Pay	Wrong card	Payment failed msg	As Expected	Pass
+TR_TC_09	Cancellation	Cancel booking	My bookings → Cancel → Confirm	Booking ID	Booking cancelled	As Expected	Pass
+TR_TC_10	History	View booking history	My bookings → Open	-	List should display	As Expected	Pass
