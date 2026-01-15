@@ -1,0 +1,29 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+public class JdbcConnectionCheck {
+
+    public static void main(String[] args) {
+
+        String url = "jdbc:mysql://localhost:3306/college_db";
+        String user = "root";
+        String pass = "root";
+
+        Connection con = null;
+
+        try {
+            con = DriverManager.getConnection(url, user, pass);
+            System.out.println("Connection Successful");
+        } catch (Exception e) {
+            System.out.println("Unable to connect");
+            // Uncomment if you want to see the exact error:
+            // e.printStackTrace();
+        } finally {
+            try {
+                if (con != null) con.close();
+            } catch (Exception e) {
+                // ignore
+            }
+        }
+    }
+}
