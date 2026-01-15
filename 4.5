@@ -1,0 +1,49 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+
+public class DisplaySemester7EC {
+
+    public static void main(String[] args) {
+
+        String url = "jdbc:mysql://localhost:3306/college_db";
+        String user = "root";
+        String pass = "root";
+
+        String selectQuery = "SELECT * FROM Students WHERE semester = ? AND branch = ?";
+
+        try (Connection con = DriverManager.getConnection(url, user, pass);
+             PreparedStatement ps = con.prepareStatement(selectQuery)) {
+
+            ps.setInt(1, 7);
+            ps.setString(2, "EC");
+
+            ResultSet rs = ps.executeQuery();
+
+            System.out.println("------ Semester 7 EC Students ------");
+
+            boolean found = false;
+
+            while (rs.next()) {
+                found = true;
+                System.out.println(
+                        "ID: " + rs.getInt("id") +
+                        " | Name: " + rs.getString("name") +
+                        " | Branch: " + rs.getString("branch") +
+                        " | Sem: " + rs.getInt("semester") +
+                        " | %: " + rs.getDouble("percentage") +
+                        " | Passing Year: " + rs.getInt("year_of_passing")
+                );
+            }
+
+            if (!found) {
+                System.out.println("No student found for Semester 7 and EC branch.");
+            }
+
+        } catch (Exception e) {
+            System.out.println("Fetching records failed.");
+            e.printStackTrace();
+        }
+    }
+}
