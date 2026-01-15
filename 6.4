@@ -1,0 +1,16 @@
+Manual Test Case Report – Automated Banking Website
+Project Name: Automated Banking Website
+Testing Type: Manual Testing
+Tested Modules: Login, Balance, Transfer, Transaction History
+Test Cases Table
+TC ID	Module	Test Case	Steps	Test Data	Expected Result	Actual Result	Status
+BK_TC_01	Login	Login with valid user	Enter user/pass → Login	admin/1234	Login success	As Expected	Pass
+BK_TC_02	Login	Login with invalid user	Wrong user/pass → Login	test/0000	Error message	As Expected	Pass
+BK_TC_03	Balance	Check account balance	Dashboard → Balance	-	Balance displayed	As Expected	Pass
+BK_TC_04	Transfer	Transfer money valid	Transfer → Enter amount → Send	500	Transfer success	As Expected	Pass
+BK_TC_05	Transfer	Transfer money with zero amount	Enter 0 → Send	0	Show error message	As Expected	Pass
+BK_TC_06	Transfer	Transfer money with negative amount	Enter -100 → Send	-100	Validation error	As Expected	Pass
+BK_TC_07	Transfer	Transfer with invalid account	Wrong receiver acc	99999	Error message	As Expected	Pass
+BK_TC_08	History	View transaction history	History → Open	-	Transactions shown	As Expected	Pass
+BK_TC_09	Logout	Logout from system	Click logout	-	Back to login	As Expected	Pass
+BK_TC_10	Security	Session timeout check	Stay idle → check	-	Auto logout	As Expected	Pass
